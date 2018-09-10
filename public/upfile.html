@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title><style>
+    body{
+        margin: 0;
+    }
+
+
+    #cut{
+        position: absolute;
+        right: 15px;
+        cursor: pointer;
+    }
+    .black{
+        overflow: hidden;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(1,1,1,.3);
+        position: fixed;
+        top: 0;
+        z-index: 150;
+        padding-top: 160px;
+    }
+
+    .dark-matter {
+        position: relative;
+        margin-top: 50px;
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 500px;
+        background: #555;
+        padding: 20px 30px 20px 30px;
+        font: 12px "Helvetica Neue", Helvetica, Arial, sans-serif;
+        color: #D3D3D3;
+        text-shadow: 1px 1px 1px #444;
+        border: none;
+        border-radius: 5px;
+        -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;
+    }
+
+    .dark-matter h1 {
+        padding: 0px 0px 10px 40px;
+        display: block;
+        border-bottom: 1px solid #444;
+        margin: -10px -30px 30px -30px;
+    }
+
+    .dark-matter h1>span {
+        display: block;
+        font-size: 11px;
+    }
+
+    .dark-matter label {
+        display: block;
+        margin: 0px 0px 5px;
+    }
+    .dark-matter label>span {
+        float: left;
+        width: 20%;
+        text-align: right;
+        padding-right: 10px;
+        margin-top: 10px;
+        font-weight: bold;
+    }
+    .dark-matter input[type="text"], .dark-matter input[type="password"], .dark-matter textarea, .dark-matter select {
+        border: none;
+        color: #525252;
+        height: 25px;
+        line-height:15px;
+        margin-bottom: 16px;
+        margin-right: 6px;
+        margin-top: 2px;
+        outline: 0 none;
+        padding: 5px 0px 5px 5px;
+        width: 70%;
+        border-radius: 2px;
+        -webkit-border-radius: 2px;
+        -moz-border-radius: 2px;
+        -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+        background: #DFDFDF;
+    }
+    .dark-matter select {
+        /*background: #DFDFDF url('down-arrow.png') no-repeat right;*/
+        /*background: #DFDFDF url('down-arrow.png') no-repeat right;*/
+        appearance:none;
+        -webkit-appearance:none;
+        -moz-appearance: none;
+        text-indent: 0.01px;
+        text-overflow: '';
+        width: 70%;
+        height: 35px;
+        color: #525252;
+        line-height: 25px;
+    }
+    .dark-matter textarea{
+        height:100px;
+        padding: 5px 0px 0px 5px;
+        width: 70%;
+    }
+    .dark-matter .button {
+        background: #FFCC02;
+        border: none;
+        padding: 10px 25px 10px 25px;
+        color: #585858;
+        border-radius: 4px;
+        -moz-border-radius: 4px;
+        -webkit-border-radius: 4px;
+        text-shadow: 1px 1px 1px #FFE477;
+        font-weight: bold;
+        box-shadow: 1px 1px 1px #3D3D3D;
+        -webkit-box-shadow:1px 1px 1px #3D3D3D;
+        -moz-box-shadow:1px 1px 1px #3D3D3D;
+    }
+    .dark-matter .button:hover {
+        color: #333;
+        background-color: #EBEBEB;
+    }
+    .dark-matter a{
+        color: #D3D3D3;
+        text-decoration: none;
+        position: absolute;
+        right: 30px;
+        cursor: pointer;
+    }
+
+
+    .container{
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        /*background-color: #333;*/
+    }
+    #snow{
+        width: 100%;
+        height: 1000px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        pointer-events: none;   /* 可穿透上层元素点击操作下层内容 */
+        z-index: 999;
+
+</style>
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js" type="text/javascript"></script>
+    <script>
+        window.onload=function(){
+            var reg = document.getElementById('reg');
+
+            reg.onclick=function(){
+                var url = "http://localhost:8081/upfile";
+                $.ajax({
+                    type:"POST",
+                    url:url,
+                    async:true,
+                    data:new FormData($('form')[0]),
+                    processData: false,
+                    contentType: false,
+                    success:function(eve){
+                        data = JSON.parse(eve);
+                        if(data.ok){
+                            alert(data.ok);
+                            window.loaction.replace('./loginall.html');
+                        }else{
+                            alert(data.err);
+                        }
+                    },
+                    eerror:function(){
+                        console.log(555)
+                    }
+
+                });
+            }
+        }
+    </script>
+</head>
+<body>
+    <!--<form enctype="multipart/form-data">-->
+        <!--用户名<input  id='user' name='username' value=""/>-->
+        <!--密码<input  id='password'  name='password'value=""/>-->
+        <!--头像<input type="file" name="file" value="" >-->
+    <!--</form>-->
+    <!--<button id='reg'>注册</button>-->
+
+    <div class="black">
+        <form  class="dark-matter" enctype="multipart/form-data">
+            <span id="cut">X</span>
+            <h1>欢迎登录
+                <span>请填写以下信息.</span>
+            </h1>
+
+            <label>
+                <span>用户名:</span>
+                <input id="name" type="text" name="username" placeholder="用 户 名" value="" required/>
+                <p   id="check1" style="margin-top: -2%;margin-left: 25%" ></p>
+            </label>
+
+            <label>
+                <span>用户密码:</span>
+                <input id="email" type="password" name="password" placeholder="密 码" value="" require/>
+                <p   id="check2" style="margin-top: -2%;margin-left: 25%" ></p>
+            </label>
+
+            <label>
+                <span>头像:</span>
+                <input id="head" type="file" name="file" placeholder="上传" value="" require/>
+                <p   id="check3" style="margin-top: -2%;margin-left: 25%" ></p>
+            </label>
+
+            <label>
+                <span>&nbsp;</span>
+                <input  id='reg' type="button" class="button" value="注册" />
+            </label>
+
+        </form>
+    </div>
+</body>
+</html>

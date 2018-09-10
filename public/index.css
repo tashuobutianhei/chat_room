@@ -1,0 +1,269 @@
+
+body{
+    margin: 0;
+    color: indianred;
+    background-size: cover;
+    background-image: url("upfile/bg1.jpg");
+}
+#top{
+    display: flex;
+    justify-content:space-around;
+    align-items:center;
+    background-color: rgba(0,0,0,.3);
+}
+#head{
+    display: flex;
+    width: 350px;
+    height: 80px;
+    justify-content:space-around;
+    align-items:center;
+    color: indianred;
+    position: relative;
+
+}
+#head ul{
+    display: none;
+    list-style-type: none;
+    position: absolute;
+    right: -100px;
+    top:-10px;
+}
+#head li:hover{
+    color: firebrick;
+    cursor: pointer;
+}
+#rooms{
+    float: right;
+}
+button{
+    border: none;
+    border-radius: 8px;
+    background-color: rgba(17,51,79,.8);
+    padding: 3px;
+    color: seashell;
+    cursor: pointer;
+    /*opacity: 0.2;*/
+}
+#content{
+    width:600px;
+    height: 500px;
+    resize:none;
+    border-radius: 15px;
+    box-shadow: 0 0 3px grey inset;
+    position: relative;
+    overflow-y: scroll;
+}
+#msg{
+    border-radius: 15px;
+    box-shadow: 0 0  grey inset;
+    margin-left: 130px;
+    width: 250px;
+    height: 25px;
+}
+#friends{
+    width: 300px;
+    height: 500px;
+    background-color: white;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    background-image: url("upfile/bg1.jpg");
+    background-position: right;
+    color: whitesmoke;
+}
+#roomList{
+    width:300px;
+    height: 500px;
+    background-color: white;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    background-image: url("upfile/bg1.jpg");
+    color: whitesmoke;
+}
+
+#friends li, #roomList li{
+    /*padding: 10px 25px 10px 10px;*/
+    /*padding-right: 25px;*/
+    cursor: pointer;
+    list-style-type: none;
+    height: 40px;
+    border: 3px black;
+    position: relative;
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+    border: 1px black solid;
+    width: 100%;
+}
+.innerbox::-webkit-scrollbar {/*滚动条整体样式*/
+    width: 4px;     /*高宽分别对应横竖滚动条的尺寸*/
+    height: 4px;
+}
+.innerbox::-webkit-scrollbar-thumb {/*滚动条里面小方块*/
+    border-radius: 5px;
+    -webkit-box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
+    background: rgba(0,0,0,0.2);
+}
+.innerbox::-webkit-scrollbar-track {/*滚动条里面轨道*/
+    -webkit-box-shadow: inset 0 0 5px rgba(100,100,100,0.2);
+    border-radius: 0;
+    background: rgba(0,0,0,0.1);
+}
+.iconImg{
+    width:32px;
+    height:32px;
+    cursor: pointer;
+    border-radius: 50%;
+}
+#body{
+    display: flex;
+    justify-content:space-around;
+    align-items:center;
+}
+
+#change_bg,#find_firend{
+    color: whitesmoke;
+    text-align: center;
+    width: 400px;
+    height: 100px;
+    background-color: rgba(0,0,0,0.4);
+    position: fixed;
+    left: 50%;
+    top:30%;
+    margin-left: -100px;
+    z-index: 100;
+
+}
+
+.close{
+    position: absolute;
+    right: 5px;
+    cursor: pointer;
+}
+.valueMe{
+    /*width: 200px;*/
+    color: black;
+    min-height: 30px;
+    padding: 2px;
+    padding-left: 15px;
+    padding-right: 15px;
+    line-height: 30px;
+    word-wrap:break-word;
+    max-width: 200px;
+    border-radius: 15px;
+    background-color: deepskyblue;
+    position: absolute;
+    right: 70px;
+}
+.valueMe2{
+    position: absolute;
+    right: 5px;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+}
+.valueOther{
+    color: black;
+    min-height: 30px;
+    padding: 2px;
+    padding-left: 15px;
+    padding-right: 15px;
+    line-height: 30px;
+    word-wrap:break-word;
+    max-width: 200px;
+    border-radius: 15px;
+    background-color: whitesmoke;
+    position: absolute;
+    left: 70px;
+}
+.valueOther2{
+    position: absolute;
+    left: 5px;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+}
+.allow:hover{
+    color: lightgreen;
+}
+.refuse:hover{
+    color: red;
+}
+.delete:hover{
+    color: red;
+}
+.quit_private{
+    cursor: pointer;
+}
+
+#roomList li div{
+    width: 80px;
+    display: flex;
+    justify-content:space-between;
+    align-items:center;
+}
+.head{
+    text-align: center;
+    display: inline-block;
+    cursor: pointer;
+    height: 35px;
+    border: 3px black;
+    border: 1px black solid;
+    width: 100%;
+}
+.btn-audio{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 6px;
+    background:url('upfile/bg2.jpg') no-repeat center bottom;
+    background-size:cover;
+}
+#user{
+    display: none;
+    color: white;
+    width: 500px;
+    height: 300px;
+    position: fixed;
+    left: 50%;
+    top:30%;
+    margin-left: -250px;
+    background-color: rgba(0,0,0,.8);
+    z-index: 100;
+    padding: 15px;
+
+    flex-direction: column;
+
+}
+
+
+#user>div>img:nth-of-type(1){
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+.changeit{
+    width: 15px;
+    height:15px;
+    vertical-align: bottom;
+    cursor: pointer;
+    margin-left: 50px;
+}
+#user>div:nth-of-type(1){
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    flex:1;
+}
+#user>div:nth-of-type(2){
+    flex:3;
+}
+#user>div:nth-of-type(3){
+    flex:3;
+    border: 1px solid white;
+}
+
+#user>div:nth-of-type(2) div:nth-of-type(1){
+    padding-top: 5px;
+     width: 60%;
+    height: 40px;
+}
